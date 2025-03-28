@@ -22,11 +22,11 @@ public class ExpressionEvaluator {
 
 
         try{
-            for (Evaluable evaluable : tokens) {
-                if(VALUE.equals(evaluable.getType())){
-                    stack.push(evaluable.evaluateFromStack(stack));
-                } else if (OPERATOR.equals(evaluable.getType())) {
-                    var value = evaluable.evaluateFromStack(stack);
+            for (Evaluable token : tokens) {
+                if(VALUE.equals(token.getType())){
+                    stack.push(token.evaluateFromStack(stack));
+                } else if (OPERATOR.equals(token.getType())) {
+                    var value = token.evaluateFromStack(stack);
                     stack.pop();
                     stack.pop();
                     stack.push(value);
