@@ -20,7 +20,6 @@ public class ExpressionEvaluator {
         }
         Stack<Integer> stack = new Stack<>();
 
-
         try{
             for (Evaluable token : tokens) {
                 if(VALUE.equals(token.getType())){
@@ -53,7 +52,7 @@ public class ExpressionEvaluator {
             Optional<Operator> operator = Operator.fromString(token);
 
             if(operator.isPresent()){
-                while (!operatorStack.empty() && operatorStack.peek().getPriority() >= operator.get().priority){
+                while (!operatorStack.empty() && operatorStack.peek().getPriority() >= operator.get().priority && !operator.get().reversedOrder){
                     output.push(operatorStack.pop());
                 }
                 operatorStack.push(new OperatorToken(operator.get()));

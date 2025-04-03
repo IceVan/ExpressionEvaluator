@@ -20,7 +20,8 @@ public class ExpressionEvaluatorTest {
             "'10 - 3 + 2 * 5 / 2', 12",
             "'-3 + 8 - 2 * -4 + 6 / 2', 16",
             "'5 * 3 - 8 / 2 + 7 - 6', 12",
-            "'100 / 5 * 3 - 7 + 2 - 8', 47"
+            "'100 / 5 * 3 - 7 + 2 - 8', 47",
+            "'2 ^ 3 ^ 2', 512"
     })
     public void testValidExpressions(String expression, int expectedResult) {
         assertEquals(expectedResult, ExpressionEvaluator.evaluate(expression));
